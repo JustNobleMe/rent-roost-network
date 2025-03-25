@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Send, Search, Phone, VideoCamera, MoreVertical, User, PaperclipIcon } from "lucide-react";
+import { Send, Search, Phone, Video, MoreVertical, User, Paperclip } from "lucide-react";
 
 // Sample conversation data
 const conversations = [
@@ -199,7 +198,7 @@ const Messages = () => {
                           <Phone className="h-5 w-5" />
                         </Button>
                         <Button variant="ghost" size="icon" className="rounded-full">
-                          <VideoCamera className="h-5 w-5" />
+                          <Video className="h-5 w-5" />
                         </Button>
                         <Button variant="ghost" size="icon" className="rounded-full">
                           <MoreVertical className="h-5 w-5" />
@@ -246,7 +245,7 @@ const Messages = () => {
                     <div className="p-4 border-t">
                       <div className="flex items-center gap-2">
                         <Button variant="ghost" size="icon">
-                          <PaperclipIcon className="h-5 w-5" />
+                          <Paperclip className="h-5 w-5" />
                         </Button>
                         <Textarea 
                           placeholder="Type your message..." 
