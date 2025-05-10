@@ -48,7 +48,7 @@ const HeroSection = () => {
             <Button
               key={type}
               variant="outline"
-              className="glass-morphism border-white/30 text-white hover:bg-white/20 hover:border-white/50"
+              className="glass-morphism border-white/30 text-foreground hover:bg-white/20 hover:border-white/50"
             >
               {type}
             </Button>

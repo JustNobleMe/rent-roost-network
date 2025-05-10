@@ -75,11 +75,11 @@ const Index = () => {
                 Join thousands of satisfied clients who found their dream homes with EstateElite
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="rounded-full px-8 bg-white text-foreground hover:bg-white/90">
+                <Button variant="outline" className="rounded-full px-8 border-white text-foreground hover:bg-white/20">
                   <User className="h-4 w-4 mr-2" />
                   Register Now
                 </Button>
-                <Button variant="outline" className="rounded-full px-8 border-white text-white hover:bg-white/20">
+                <Button variant="outline" className="rounded-full px-8 border-white text-foreground hover:bg-white/20">
                   Browse Properties
                 </Button>
               </div>

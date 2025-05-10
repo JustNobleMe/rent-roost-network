@@ -38,7 +38,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label htmlFor="email" className="block mb-2 text-sm font-medium">Email</label>
-                  <Input id="email" type="email" placeholder="Your email" />
+                  <Input id="email" type="email" placeholder="Your email" className='outline-none'/>
                 </div>
                 <div>
                   <label htmlFor="message" className="block mb-2 text-sm font-medium">Message</label>
