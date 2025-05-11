@@ -127,22 +127,22 @@ const PropertyDetails = () => {
                 <h2 className="text-xl font-semibold mb-4">Property Details</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                   <div className="flex flex-col items-center p-4 bg-secondary rounded-lg">
-                    <Bed className="h-6 w-6 mb-2 text-primary" />
+                    <Bed className="h-6 w-6 mb-2 text-foreground/50" />
                     <span className="font-bold">{property.beds}</span>
                     <span className="text-xs text-muted-foreground">Bedrooms</span>
                   </div>
                   <div className="flex flex-col items-center p-4 bg-secondary rounded-lg">
-                    <Bath className="h-6 w-6 mb-2 text-primary" />
+                    <Bath className="h-6 w-6 mb-2 text-foreground/50" />
                     <span className="font-bold">{property.baths}</span>
                     <span className="text-xs text-muted-foreground">Bathrooms</span>
                   </div>
                   <div className="flex flex-col items-center p-4 bg-secondary rounded-lg">
-                    <Square className="h-6 w-6 mb-2 text-primary" />
+                    <Square className="h-6 w-6 mb-2 text-foreground/50" />
                     <span className="font-bold">{property.size}</span>
                     <span className="text-xs text-muted-foreground">Living Area</span>
                   </div>
                   <div className="flex flex-col items-center p-4 bg-secondary rounded-lg">
-                    <Car className="h-6 w-6 mb-2 text-primary" />
+                    <Car className="h-6 w-6 mb-2 text-foreground/50" />
                     <span className="font-bold">{property.garage}</span>
                     <span className="text-xs text-muted-foreground">Garage</span>
                   </div>
