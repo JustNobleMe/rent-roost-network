@@ -232,22 +232,30 @@ const PropertyDetails = () => {
                   <div className="space-y-3 mb-4">
                     <div className="flex items-center">
                       <Phone className="h-4 w-4 mr-2 text-muted-foreground" />
-                      <span className="text-sm">{agent.phone}</span>
+                      <span className="text-sm"><a href={`tel:${agent.phone}`} className="text-sm hover:underline">
+                        {agent.phone}
+                      </a></span>
                     </div>
                     <div className="flex items-center">
                       <Mail className="h-4 w-4 mr-2 text-muted-foreground" />
-                      <span className="text-sm">{agent.email}</span>
+                      <span className="text-sm"><a href={`mailto:${agent.email}`} className="text-sm hover:underline">
+                        {agent.email}
+                      </a></span>
                     </div>
                   </div>
                   <div className="grid gap-2">
-                    <Button className="w-full">
-                      <Phone className="h-4 w-4 mr-2" />
-                      Call Agent
-                    </Button>
-                    <Button variant="outline" className="w-full">
-                      <Mail className="h-4 w-4 mr-2" />
-                      Email Agent
-                    </Button>
+                    <a href={`tel:${agent.phone}`} className="w-full">  
+                      <Button className="w-full">
+                        <Phone className="h-4 w-4 mr-2" />
+                        Call Agent
+                      </Button>
+                    </a>
+                    <a href={`mailto:${agent.email}`} className="w-full">
+                      <Button variant="outline" className="w-full">
+                        <Mail className="h-4 w-4 mr-2" />
+                        Email Agent
+                      </Button>
+                    </a>
                     <Link to="/messages">
                       <Button variant="secondary" className="w-full">
                         <MessageCircle className="h-4 w-4 mr-2" />
