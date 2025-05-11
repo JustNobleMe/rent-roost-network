@@ -200,6 +200,16 @@ const PropertyDetails = () => {
                   </Card>
                 </TabsContent>
               </Tabs>
+
+                            
+              {/* Map Placeholder */}
+              <div className="mb-8">
+                <h2 className="text-xl font-semibold mb-4">Location</h2>
+                <div className="bg-secondary aspect-video rounded-lg flex items-center justify-center">
+                  <p className="text-muted-foreground">Map view coming soon</p>
+                </div>
+              </div>
+
             </div>
             
             {/* Sidebar */}
