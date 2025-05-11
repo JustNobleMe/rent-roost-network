@@ -1,0 +1,389 @@
+[
+  {
+    "id": "1",
+    "title": "Modern Luxury Villa",
+    "description": "This stunning modern villa offers luxurious living with panoramic views of the city and ocean. Featuring an open floor plan, high ceilings, and floor-to-ceiling windows, this property bathes in natural light throughout the day. The gourmet kitchen includes top-of-the-line appliances, custom cabinetry, and a large center island. The primary suite boasts a spa-like bathroom and a private balcony. Additional amenities include a home theater, wine cellar, infinity pool, and a spacious outdoor entertainment area.",
+    "location": "Beverly Hills, CA 90210",
+    "price": "$5,200,000",
+    "priceNumeric": 5200000,
+    "type": "Sale",
+    "status": "Available",
+    "yearBuilt": 2019,
+    "lotSize": "0.75 acres",
+    "beds": 5,
+    "baths": 6,
+    "size": "6,200 sq ft",
+    "garage": "3 Cars",
+    "features": [
+      "Infinity Pool",
+      "Home Theater",
+      "Wine Cellar",
+      "Smart Home System",
+      "Gourmet Kitchen",
+      "Outdoor Kitchen",
+      "Fireplace",
+      "Walk-in Closets",
+      "Spa/Hot Tub",
+      "Balcony/Deck",
+      "Ocean View",
+      "Security System"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+    ],
+    "agent": {
+    "id": 1
+    }
+  },
+  {
+    "id": "2",
+    "title": "Downtown Penthouse",
+    "description": "This luxurious penthouse in the heart of Manhattan offers breathtaking city views and modern amenities. The open-concept living space features floor-to-ceiling windows, a chef's kitchen with high-end appliances, and a private terrace. The master suite includes a spa-like bathroom and walk-in closet. Additional amenities include a fitness center, concierge service, and a rooftop pool.",
+    "location": "Manhattan, NY 10001",
+    "price": "$12,500/month",
+    "priceNumeric": 12500,
+    "type": "Rent",
+    "status": "Available",
+    "yearBuilt": 2015,
+    "lotSize": "N/A",
+    "beds": 3,
+    "baths": 3.5,
+    "size": "3,100 sq ft",
+    "garage": "2 Cars",
+    "features": [
+      "Private Terrace",
+      "Fitness Center",
+      "Concierge Service",
+      "Rooftop Pool",
+      "Chef's Kitchen",
+      "Walk-in Closets",
+      "City Views",
+      "Smart Home System"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+    ],
+    "agent": {
+    "id": 2
+    }
+  },
+  {
+    "id": "3",
+    "title": "Waterfront Estate",
+    "description": "This magnificent waterfront estate in Miami Beach offers unparalleled luxury and privacy. The property features a grand entrance, expansive living spaces, and stunning water views. The gourmet kitchen is equipped with top-of-the-line appliances, and the master suite includes a private balcony and spa-like bathroom. Outdoor amenities include a private dock, infinity pool, and lush landscaping.",
+    "location": "Miami Beach, FL 33139",
+    "price": "$7,800,000",
+    "priceNumeric": 7800000,
+    "type": "Sale",
+    "status": "Available",
+    "yearBuilt": 2020,
+    "lotSize": "1.2 acres",
+    "beds": 6,
+    "baths": 8,
+    "size": "8,500 sq ft",
+    "garage": "4 Cars",
+    "features": [
+      "Private Dock",
+      "Infinity Pool",
+      "Gourmet Kitchen",
+      "Spa/Hot Tub",
+      "Walk-in Closets",
+      "Water Views",
+      "Security System",
+      "Outdoor Entertainment Area"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+    ],
+    "agent": {
+    "id": 3
+    }
+  },
+  {
+    "id": "4",
+    "title": "Urban Loft Apartment",
+    "description": "This stylish urban loft in Chicago offers a modern industrial design with exposed brick walls and high ceilings. The open floor plan includes a spacious living area, a sleek kitchen with stainless steel appliances, and a private balcony. The building features a fitness center, rooftop deck, and 24-hour security.",
+    "location": "Chicago, IL 60601",
+    "price": "$4,200/month",
+    "priceNumeric": 4200,
+    "type": "Rent",
+    "status": "Available",
+    "yearBuilt": 2010,
+    "lotSize": "N/A",
+    "beds": 2,
+    "baths": 2,
+    "size": "1,800 sq ft",
+    "garage": "1 Car",
+    "features": [
+      "Private Balcony",
+      "Fitness Center",
+      "Rooftop Deck",
+      "24-Hour Security",
+      "Modern Kitchen",
+      "Exposed Brick Walls",
+      "High Ceilings"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+    ],
+    "agent": {
+    "id": 2
+    }
+  },
+  {
+    "id": "5",
+    "title": "Coastal Mediterranean Villa",
+    "description": "This Mediterranean-style villa in Santa Barbara offers breathtaking ocean views and luxurious living. The property features a spacious open floor plan, a gourmet kitchen, and a master suite with a private balcony. Outdoor amenities include a pool, spa, and beautifully landscaped gardens.",
+    "location": "Santa Barbara, CA 93108",
+    "price": "$4,500,000",
+    "priceNumeric": 4500000,
+    "type": "Sale",
+    "status": "Available",
+    "yearBuilt": 2018,
+    "lotSize": "1 acre",
+    "beds": 4,
+    "baths": 4.5,
+    "size": "4,700 sq ft",
+    "garage": "2 Cars",
+    "features": [
+      "Ocean Views",
+      "Gourmet Kitchen",
+      "Private Balcony",
+      "Pool",
+      "Spa",
+      "Landscaped Gardens",
+      "Mediterranean Design"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1598228723793-52759bba239c?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+    ],
+    "agent": {
+    "id": 1
+    }
+  },
+  {
+    "id": "6",
+    "title": "Luxury Beachfront Condo",
+    "description": "This beachfront condo in Malibu offers stunning ocean views and modern amenities. The open floor plan includes a spacious living area, a gourmet kitchen, and a private balcony. The building features a fitness center, pool, and 24-hour concierge service.",
+    "location": "Malibu, CA 90265",
+    "price": "$3,800,000",
+    "priceNumeric": 3800000,
+    "type": "Sale",
+    "status": "Available",
+    "yearBuilt": 2016,
+    "lotSize": "N/A",
+    "beds": 3,
+    "baths": 3,
+    "size": "2,500 sq ft",
+    "garage": "2 Cars",
+    "features": [
+      "Ocean Views",
+      "Private Balcony",
+      "Fitness Center",
+      "Pool",
+      "24-Hour Concierge",
+      "Modern Kitchen"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+    ],
+    "agent": {
+    "id": 4
+    }
+  },
+  {
+  "id": "7",
+  "title": "Suburban Family Home",
+  "description": "This charming family home in Austin offers a spacious layout with modern finishes. The property features a large backyard, a gourmet kitchen, and a master suite with a walk-in closet. Located in a quiet neighborhood, this home is perfect for families.",
+  "location": "Austin, TX 78701",
+  "price": "$850,000",
+  "priceNumeric": 850000,
+  "type": "Sale",
+  "status": "Available",
+  "yearBuilt": 2012,
+  "lotSize": "0.5 acres",
+  "beds": 4,
+  "baths": 3,
+  "size": "3,200 sq ft",
+  "garage": "2 Cars",
+  "features": [
+    "Large Backyard",
+    "Gourmet Kitchen",
+    "Walk-in Closet",
+    "Quiet Neighborhood",
+    "Modern Finishes",
+    "Energy Efficient"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1560185127-6a1865aa8121?q=80&w=1200&auto=format&fit=crop"
+  ],
+    "agent": {
+    "id": 6
+    }
+},
+{
+  "id": "8",
+  "title": "Modern Studio Apartment",
+  "description": "This sleek studio apartment in Seattle offers modern living in the heart of the city. The open floor plan includes a compact kitchen, a cozy living area, and a private balcony. Perfect for young professionals or students.",
+  "location": "Seattle, WA 98101",
+  "price": "$2,200/month",
+  "priceNumeric": 2200,
+  "type": "Rent",
+  "status": "Available",
+  "yearBuilt": 2018,
+  "lotSize": "N/A",
+  "beds": 1,
+  "baths": 1,
+  "size": "600 sq ft",
+  "garage": "N/A",
+  "features": [
+    "Private Balcony",
+    "Compact Kitchen",
+    "City Views",
+    "Modern Design",
+    "Central Location"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1598928506312-0c7f6f5f5f4b?q=80&w=1200&auto=format&fit=crop"
+  ],
+    "agent": {
+    "id": 5
+    }
+},
+{
+  "id": "9",
+  "title": "Rustic Country Cottage",
+  "description": "This cozy country cottage in Nashville offers a peaceful retreat with rustic charm. The property features a spacious living area, a modern kitchen, and a large front porch. Surrounded by nature, this home is perfect for those seeking tranquility.",
+  "location": "Nashville, TN 37201",
+  "price": "$1,200/week",
+  "priceNumeric": 1200,
+  "type": "Lease",
+  "status": "Available",
+  "yearBuilt": 2005,
+  "lotSize": "1 acre",
+  "beds": 2,
+  "baths": 1.5,
+  "size": "1,200 sq ft",
+  "garage": "1 Car",
+  "features": [
+    "Rustic Charm",
+    "Large Front Porch",
+    "Modern Kitchen",
+    "Nature Views",
+    "Peaceful Retreat"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
+  ],
+    "agent": {
+    "id": 1
+    }
+},
+{
+  "id": "10",
+  "title": "Luxury Mountain Chalet",
+  "description": "This luxurious mountain chalet in Aspen offers breathtaking views and high-end amenities. The property features a spacious living area with a fireplace, a gourmet kitchen, and a private hot tub. Perfect for winter getaways.",
+  "location": "Aspen, CO 81611",
+  "price": "$6,500/week",
+  "priceNumeric": 6500,
+  "type": "Lease",
+  "status": "Available",
+  "yearBuilt": 2015,
+  "lotSize": "2 acres",
+  "beds": 4,
+  "baths": 3.5,
+  "size": "3,500 sq ft",
+  "garage": "2 Cars",
+  "features": [
+    "Mountain Views",
+    "Private Hot Tub",
+    "Fireplace",
+    "Gourmet Kitchen",
+    "Ski-In/Ski-Out Access"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
+  ],
+    "agent": {
+    "id": 3
+    }
+},
+{
+  "id": "11",
+  "title": "Modern Farmhouse",
+  "description": "This modern farmhouse in Dallas combines rustic charm with contemporary design. The property features a spacious open floor plan, a gourmet kitchen, and a large backyard with a pool. Perfect for families.",
+  "location": "Dallas, TX 75201",
+  "price": "$1,200,000",
+  "priceNumeric": 1200000,
+  "type": "Sale",
+  "status": "Available",
+  "yearBuilt": 2020,
+  "lotSize": "1 acre",
+  "beds": 5,
+  "baths": 4,
+  "size": "4,000 sq ft",
+  "garage": "3 Cars",
+  "features": [
+    "Large Backyard",
+    "Pool",
+    "Gourmet Kitchen",
+    "Open Floor Plan",
+    "Rustic Charm"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
+  ],
+    "agent": {
+    "id": 6
+    }
+},
+{
+  "id": "12",
+  "title": "Beachfront Bungalow",
+  "description": "This charming beachfront bungalow in Key West offers stunning ocean views and a relaxed atmosphere. The property features a spacious deck, a modern kitchen, and direct beach access.",
+  "location": "Key West, FL 33040",
+  "price": "$3,500,000",
+  "priceNumeric": 3500000,
+  "type": "Sale",
+  "status": "Available",
+  "yearBuilt": 2010,
+  "lotSize": "0.5 acres",
+  "beds": 3,
+  "baths": 2,
+  "size": "2,000 sq ft",
+  "garage": "1 Car",
+  "features": [
+    "Ocean Views",
+    "Spacious Deck",
+    "Modern Kitchen",
+    "Direct Beach Access",
+    "Relaxed Atmosphere"
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
+  ],
+    "agent": {
+    "id": 5
+    }
+}
+]

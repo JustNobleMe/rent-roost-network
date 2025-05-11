@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from "@/components/Navbar";
@@ -8,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
+import PropertiesData from '@/data.json';
+import AgentsData from '@/agents.json';
 import { 
   MapPin, 
   Bed, 
@@ -25,57 +26,23 @@ import {
   MessageCircle 
 } from "lucide-react";
 
-// Sample property data (in a real app, this would come from an API)
-const propertyData = {
-  id: "1",
-  title: "Modern Luxury Villa",
-  description: "This stunning modern villa offers luxurious living with panoramic views of the city and ocean. Featuring an open floor plan, high ceilings, and floor-to-ceiling windows, this property bathes in natural light throughout the day. The gourmet kitchen includes top-of-the-line appliances, custom cabinetry, and a large center island. The primary suite boasts a spa-like bathroom and a private balcony. Additional amenities include a home theater, wine cellar, infinity pool, and a spacious outdoor entertainment area.",
-  location: "Beverly Hills, CA 90210",
-  price: "$5,200,000",
-  type: "Sale",
-  status: "Available",
-  yearBuilt: 2019,
-  lotSize: "0.75 acres",
-  beds: 5,
-  baths: 6,
-  size: "6,200 sq ft",
-  garage: "3 Cars",
-  features: [
-    "Infinity Pool",
-    "Home Theater",
-    "Wine Cellar",
-    "Smart Home System",
-    "Gourmet Kitchen",
-    "Outdoor Kitchen",
-    "Fireplace",
-    "Walk-in Closets",
-    "Spa/Hot Tub",
-    "Balcony/Deck",
-    "Ocean View",
-    "Security System"
-  ],
-  images: [
-    "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?q=80&w=1200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
-  ],
-  agent: {
-    id: 1,
-    name: "Sarah Johnson",
-    title: "Senior Real Estate Agent",
-    phone: "+1 (323) 555-7890",
-    email: "sarah.johnson@estateelit.com",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop"
-  }
-};
-
 const PropertyDetails = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // Get the property ID from the route
   const [activeImage, setActiveImage] = useState(0);
-  
-  // In a real app, we would fetch the property data based on the ID
-  const property = propertyData;
+
+  // Find the property by ID
+  const property = PropertiesData.find((item) => item.id === id);
+
+  // Find the agent associated with the property
+  const agent = property ? AgentsData.find((agent) => agent.id === property.agent.id) : null;
+
+  if (!property) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-muted-foreground">Property not found.</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -233,14 +200,6 @@ const PropertyDetails = () => {
                   </Card>
                 </TabsContent>
               </Tabs>
-              
-              {/* Map Placeholder */}
-              <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">Location</h2>
-                <div className="bg-secondary aspect-video rounded-lg flex items-center justify-center">
-                  <p className="text-muted-foreground">Map view coming soon</p>
-                </div>
-              </div>
             </div>
             
             {/* Sidebar */}
@@ -250,24 +209,24 @@ const PropertyDetails = () => {
                 <CardContent className="pt-6">
                   <div className="flex items-center mb-4">
                     <img 
-                      src={property.agent.image} 
-                      alt={property.agent.name} 
+                      src={agent.image} 
+                      alt={agent.name} 
                       className="h-16 w-16 rounded-full object-cover mr-4"
                     />
                     <div>
-                      <h3 className="font-semibold">{property.agent.name}</h3>
-                      <p className="text-sm text-muted-foreground">{property.agent.title}</p>
+                      <h3 className="font-semibold">{agent.name}</h3>
+                      <p className="text-sm text-muted-foreground">{agent.title}</p>
                     </div>
                   </div>
                   <Separator className="mb-4" />
                   <div className="space-y-3 mb-4">
                     <div className="flex items-center">
                       <Phone className="h-4 w-4 mr-2 text-muted-foreground" />
-                      <span className="text-sm">{property.agent.phone}</span>
+                      <span className="text-sm">{agent.phone}</span>
                     </div>
                     <div className="flex items-center">
                       <Mail className="h-4 w-4 mr-2 text-muted-foreground" />
-                      <span className="text-sm">{property.agent.email}</span>
+                      <span className="text-sm">{agent.email}</span>
                     </div>
                   </div>
                   <div className="grid gap-2">

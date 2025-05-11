@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import PropertyCard from './PropertyCard';
 import { Link } from 'react-router-dom';
+import PropertiesData from '@/data.json'
 
 // Sample property data
 const featuredProperties = [

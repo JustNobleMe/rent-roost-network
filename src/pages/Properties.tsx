@@ -10,85 +10,12 @@ import { Search, Filter, MapPin, Bed, Bath, Square, X } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useLocation } from 'react-router-dom';
-
-const PropertiesData = [
-  {
-    id: "1",
-    title: "Modern Luxury Villa",
-    location: "Beverly Hills, CA",
-    price: "$5,200,000",
-    priceNumeric: 5200000,
-    type: "Sale",
-    beds: 5,
-    baths: 6,
-    size: "6,200 sq ft",
-    image: "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?q=80&w=1200&auto=format&fit=crop"
-  },
-  {
-    id: "2",
-    title: "Downtown Penthouse",
-    location: "Manhattan, NY",
-    price: "$12,500/month",
-    priceNumeric: 12500,
-    type: "Rent",
-    beds: 3,
-    baths: 3.5,
-    size: "3,100 sq ft",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"
-  },
-  {
-    id: "3",
-    title: "Waterfront Estate",
-    location: "Miami Beach, FL",
-    price: "$7,800,000",
-    priceNumeric: 7800000,
-    type: "Sale",
-    beds: 6,
-    baths: 8,
-    size: "8,500 sq ft",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
-  },
-  {
-    id: "4",
-    title: "Urban Loft Apartment",
-    location: "Chicago, IL",
-    price: "$4,200/month",
-    priceNumeric: 4200,
-    type: "Rent",
-    beds: 2,
-    baths: 2,
-    size: "1,800 sq ft",
-    image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1200&auto=format&fit=crop"
-  },
-  {
-    id: "5",
-    title: "Coastal Mediterranean Villa",
-    location: "Santa Barbara, CA",
-    price: "$4,500,000",
-    priceNumeric: 4500000,
-    type: "Sale",
-    beds: 4,
-    baths: 4.5,
-    size: "4,700 sq ft",
-    image: "https://images.unsplash.com/photo-1598228723793-52759bba239c?q=80&w=1200&auto=format&fit=crop"
-  },
-  {
-    id: "6",
-    title: "Mountain View Cabin",
-    location: "Aspen, CO",
-    price: "$6,500/week",
-    priceNumeric: 6500,
-    type: "Lease",
-    beds: 3,
-    baths: 2,
-    size: "2,200 sq ft",
-    image: "https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=1200&auto=format&fit=crop"
-  }
-];
+import { useLocation, useNavigate } from 'react-router-dom';
+import PropertiesData from "@/data.json";
 
 const Properties = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const searchQuery = queryParams.get("search") || ""; // Extract the search term from the query parameters
 
@@ -293,10 +220,10 @@ const Properties = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProperties.length > 0 ? (
               filteredProperties.map((property) => (
-                <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer" onClick={() => navigate(`/property/${property.id}`)}>
                   <div className="aspect-video relative overflow-hidden">
                     <img 
-                      src={property.image} 
+                      src={property.images[0]} 
                       alt={property.title} 
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                     />
