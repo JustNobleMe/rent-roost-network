@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import PropertyCard from './PropertyCard';
+import { Link } from 'react-router-dom';
 
 // Sample property data
 const featuredProperties = [
@@ -74,11 +75,13 @@ const FeaturedProperties = () => {
           ))}
         </div>
         
-        <div className="text-center">
-          <Button className="rounded-full px-8">
-            View All Properties
-          </Button>
-        </div>
+        <Link to="/properties">
+          <div className="text-center">
+            <Button className="rounded-full px-8">
+              View All Properties
+            </Button>
+          </div>
+        </Link>
       </div>
     </section>
   );

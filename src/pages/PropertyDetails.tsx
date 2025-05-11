@@ -139,7 +139,7 @@ const PropertyDetails = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-3xl font-bold text-primary">{property.price}</p>
+                    <p className="text-3xl font-bold text-foreground">{property.price}</p>
                     <p className="text-muted-foreground text-sm">ID: {id}</p>
                   </div>
                 </div>

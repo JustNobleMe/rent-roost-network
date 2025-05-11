@@ -49,11 +49,11 @@ const Navbar = () => {
           </nav>
           
           <div className="flex items-center space-x-4">
-            <Link to="/search">
+            {/* <Link to="/search">
               <Button variant="ghost" size="icon" className="rounded-full">
                 <Search className="h-5 w-5" />
               </Button>
-            </Link>
+            </Link> */}
             <Link to="/messages">
               <Button variant="ghost" size="icon" className="rounded-full">
                 <MessageCircle className="h-5 w-5" />

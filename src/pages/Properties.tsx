@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,6 +10,7 @@ import { Search, Filter, MapPin, Bed, Bath, Square, X } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useLocation } from 'react-router-dom';
 
 const PropertiesData = [
   {
@@ -88,7 +88,11 @@ const PropertiesData = [
 ];
 
 const Properties = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const searchQuery = queryParams.get("search") || ""; // Extract the search term from the query parameters
+
+  const [searchTerm, setSearchTerm] = useState(searchQuery); // Initialize with the search query
   const [activeTab, setActiveTab] = useState("all");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   
@@ -117,26 +121,30 @@ const Properties = () => {
   };
   
   // Filter properties based on search term, active tab, and filters
-  const filteredProperties = PropertiesData.filter(property => {
-    const matchesSearch = property.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                        property.location.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesTab = activeTab === "all" || property.type.toLowerCase() === activeTab.toLowerCase();
-    
-    // Price filter - different for rent/sale
-    const matchesPrice = property.type === "Rent" || property.type === "Lease" 
-      ? property.priceNumeric >= priceRange[0] && property.priceNumeric <= priceRange[1]
-      : property.priceNumeric >= priceRange[0] && property.priceNumeric <= priceRange[1];
-    
-    // Bedrooms filter
-    const matchesBedrooms = bedrooms === "" || property.beds >= parseInt(bedrooms);
-    
-    // Bathrooms filter
-    const matchesBathrooms = bathrooms === "" || property.baths >= parseFloat(bathrooms);
-    
-    // Property type filter
-    const matchesPropertyType = propertyType === "" || property.type === propertyType;
-    
-    return matchesSearch && matchesTab && matchesPrice && matchesBedrooms && matchesBathrooms && matchesPropertyType;
+  const filteredProperties = PropertiesData.filter((property) => {
+    const matchesSearch =
+      property.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      property.location.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesTab =
+      activeTab === "all" || property.type.toLowerCase() === activeTab.toLowerCase();
+
+    const matchesPrice =
+      property.priceNumeric >= priceRange[0] && property.priceNumeric <= priceRange[1];
+    const matchesBedrooms =
+      bedrooms === "" || property.beds >= parseInt(bedrooms);
+    const matchesBathrooms =
+      bathrooms === "" || property.baths >= parseFloat(bathrooms);
+    const matchesPropertyType =
+      propertyType === "" || property.type === propertyType;
+
+    return (
+      matchesSearch &&
+      matchesTab &&
+      matchesPrice &&
+      matchesBedrooms &&
+      matchesBathrooms &&
+      matchesPropertyType
+    );
   });
 
   // Are any filters active?
@@ -165,26 +173,37 @@ const Properties = () => {
               </div>
               <Popover open={isFilterOpen} onOpenChange={setIsFilterOpen}>
                 <PopoverTrigger asChild>
-                  <Button variant="outline" className={hasActiveFilters ? "border-primary text-primary" : ""}>
+                  <Button
+                    variant="outline"
+                    className={hasActiveFilters ? "border-primary text-primary" : ""}
+                  >
                     <Filter className="h-4 w-4 mr-2" />
-                    {hasActiveFilters ? `Filters (${
-                      (bedrooms !== "" ? 1 : 0) + 
-                      (bathrooms !== "" ? 1 : 0) + 
-                      (propertyType !== "" ? 1 : 0) + 
-                      ((priceRange[0] > 0 || priceRange[1] < 10000000) ? 1 : 0)
-                    })` : "Filters"}
+                    {hasActiveFilters
+                      ? `Filters (${
+                          (bedrooms !== "" ? 1 : 0) +
+                          (bathrooms !== "" ? 1 : 0) +
+                          (propertyType !== "" ? 1 : 0) +
+                          ((priceRange[0] > 0 || priceRange[1] < 10000000) ? 1 : 0)
+                        })`
+                      : "Filters"}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-80 p-4">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <h3 className="font-medium">Filters</h3>
-                      <Button variant="ghost" size="sm" onClick={clearFilters} className="h-8 px-2 text-xs">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={clearFilters}
+                        className="h-8 px-2 text-xs"
+                      >
                         <X className="h-3 w-3 mr-1" />
                         Clear all
                       </Button>
                     </div>
-                    
+
+                    {/* Property Type Filter */}
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Property Type</label>
                       <Select value={propertyType} onValueChange={setPropertyType}>
@@ -192,14 +211,15 @@ const Properties = () => {
                           <SelectValue placeholder="Any" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="">Any</SelectItem>
+                          <SelectItem value="any">Any</SelectItem>
                           <SelectItem value="Sale">For Sale</SelectItem>
                           <SelectItem value="Rent">For Rent</SelectItem>
                           <SelectItem value="Lease">For Lease</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
-                    
+
+                    {/* Price Range Filter */}
                     <div className="space-y-2">
                       <div className="flex justify-between">
                         <label className="text-sm font-medium">Price Range</label>
@@ -207,16 +227,17 @@ const Properties = () => {
                           {formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}
                         </span>
                       </div>
-                      <Slider 
-                        value={priceRange} 
-                        min={0} 
-                        max={10000000} 
-                        step={50000} 
-                        onValueChange={setPriceRange} 
+                      <Slider
+                        value={priceRange}
+                        min={0}
+                        max={10000000}
+                        step={50000}
+                        onValueChange={setPriceRange}
                         className="py-4"
                       />
                     </div>
-                    
+
+                    {/* Bedrooms Filter */}
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Bedrooms</label>
                       <Select value={bedrooms} onValueChange={setBedrooms}>
@@ -224,7 +245,7 @@ const Properties = () => {
                           <SelectValue placeholder="Any" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="">Any</SelectItem>
+                          <SelectItem value="any">Any</SelectItem>
                           <SelectItem value="1">1+</SelectItem>
                           <SelectItem value="2">2+</SelectItem>
                           <SelectItem value="3">3+</SelectItem>
@@ -233,7 +254,8 @@ const Properties = () => {
                         </SelectContent>
                       </Select>
                     </div>
-                    
+
+                    {/* Bathrooms Filter */}
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Bathrooms</label>
                       <Select value={bathrooms} onValueChange={setBathrooms}>
@@ -241,7 +263,7 @@ const Properties = () => {
                           <SelectValue placeholder="Any" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="">Any</SelectItem>
+                          <SelectItem value="any">Any</SelectItem>
                           <SelectItem value="1">1+</SelectItem>
                           <SelectItem value="2">2+</SelectItem>
                           <SelectItem value="3">3+</SelectItem>
@@ -249,7 +271,7 @@ const Properties = () => {
                         </SelectContent>
                       </Select>
                     </div>
-                    
+
                     <Button className="w-full" onClick={() => setIsFilterOpen(false)}>
                       Apply Filters
                     </Button>
@@ -285,7 +307,7 @@ const Properties = () => {
                   <CardContent className="p-5">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="font-bold text-xl">{property.title}</h3>
-                      <p className="font-bold text-primary">{property.price}</p>
+                      <p className="font-bold text-foreground/50">{property.price}</p>
                     </div>
                     <div className="flex items-center text-muted-foreground mb-4">
                       <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />

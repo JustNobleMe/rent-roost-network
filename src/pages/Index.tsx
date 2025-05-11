@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
+import { Link } from 'react-router-dom';
 import HeroSection from '@/components/HeroSection';
 import FeaturedProperties from '@/components/FeaturedProperties';
 import Footer from '@/components/Footer';
@@ -75,13 +76,17 @@ const Index = () => {
                 Join thousands of satisfied clients who found their dream homes with EstateElite
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="outline" className="rounded-full px-8 border-white text-foreground hover:bg-white/20">
-                  <User className="h-4 w-4 mr-2" />
-                  Register Now
-                </Button>
-                <Button variant="outline" className="rounded-full px-8 border-white text-foreground hover:bg-white/20">
-                  Browse Properties
-                </Button>
+                <Link to="/login">
+                  <Button variant="outline" className="rounded-full px-8 border-white text-foreground hover:bg-white/20">
+                    <User className="h-4 w-4 mr-2" />
+                    Register Now
+                  </Button>
+                </Link>
+                <Link to="/properties">
+                  <Button variant="outline" className="rounded-full px-8 border-white text-foreground hover:bg-white/20">
+                    Browse Properties
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

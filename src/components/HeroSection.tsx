@@ -1,9 +1,24 @@
-
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Search } from 'lucide-react';
 
 const HeroSection = () => {
+  const [searchTerm, setSearchTerm] = useState(""); // State to store the search input
+  const navigate = useNavigate(); // Hook to navigate to the Properties page
+
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      navigate(`/properties?search=${encodeURIComponent(searchTerm)}`); // Navigate with the search term as a query parameter
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch(); // Trigger search when Enter is pressed
+    }
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -33,10 +48,16 @@ const HeroSection = () => {
               type="text"
               placeholder="City, neighborhood, or address"
               className="w-full h-12 pl-12 pr-4 bg-transparent rounded-full focus:outline-none text-foreground"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)} // Update the search term
+              onKeyDown={handleKeyDown} // Trigger search on Enter key press
             />
           </div>
           <div className="flex-shrink-0 pl-2">
-            <Button className="h-12 px-8 rounded-full bg-foreground text-primary hover:bg-foreground/90 transition-colors">
+            <Button
+              className="h-12 px-8 rounded-full bg-foreground text-primary hover:bg-foreground/90 transition-colors"
+              onClick={handleSearch} // Trigger the search
+            >
               Search
             </Button>
           </div>
@@ -45,13 +66,15 @@ const HeroSection = () => {
         {/* Property Types */}
         <div className="flex flex-wrap justify-center gap-4 mt-10 animate-fade-in [animation-delay:600ms]">
           {['Buy', 'Rent', 'Lease', 'Luxury', 'New'].map((type) => (
-            <Button
-              key={type}
-              variant="outline"
-              className="glass-morphism border-white/30 text-foreground hover:bg-white/20 hover:border-white/50"
-            >
-              {type}
-            </Button>
+            <Link to="/properties">
+              <Button
+                key={type}
+                variant="outline"
+                className="glass-morphism border-white/30 text-foreground hover:bg-white/20 hover:border-white/50"
+              >
+                {type}
+              </Button>
+            </Link>
           ))}
         </div>
       </div>
