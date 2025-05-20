@@ -1,0 +1,41 @@
+import { Home, BarChart, List, Settings, LogOut } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import clsx from "clsx";
+
+const navItems = [
+  { icon: <Home />, label: "Dashboard", to: "/agent-dashboard" },
+  { icon: <BarChart />, label: "Analytics", to: "/agent-analytics" },
+  { icon: <List />, label: "Properties", to: "/agent-properties" },
+  { icon: <Settings />, label: "Settings", to: "/agent-settings" },
+];
+
+const AgentSidebar = () => {
+  const location = useLocation();
+  return (
+    <aside className="fixed left-0 top-0 h-full w-20 bg-white border-r flex flex-col items-center py-6 z-30">
+      <div className="mb-8">
+        <img src="/logo192.png" alt="Logo" className="w-10 h-10" />
+      </div>
+      <nav className="flex flex-col gap-8 flex-1">
+        {navItems.map((item) => (
+          <Link
+            key={item.label}
+            to={item.to}
+            className={clsx(
+              "flex flex-col items-center text-muted-foreground hover:text-primary transition-colors",
+              location.pathname === item.to && "text-primary"
+            )}
+          >
+            {item.icon}
+            <span className="text-xs mt-1">{item.label}</span>
+          </Link>
+        ))}
+      </nav>
+      <button className="mt-auto mb-2 text-muted-foreground hover:text-red-500 transition-colors">
+        <LogOut />
+      </button>
+    </aside>
+  );
+};
+
+export default AgentSidebar;

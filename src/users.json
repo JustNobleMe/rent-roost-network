@@ -1,0 +1,43 @@
+{
+  "user": {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john.doe@email.com",
+    "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
+  },
+  "savedProperties": [
+    {
+      "id": "1",
+      "title": "Modern Luxury Villa",
+      "location": "Beverly Hills, CA 90210",
+      "price": "$5,200,000",
+      "image": "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      "id": "2",
+      "title": "Downtown Penthouse",
+      "location": "Manhattan, NY 10001",
+      "price": "$12,500/month",
+      "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"
+    }
+  ],
+  "purchases": [
+    {
+      "id": "3",
+      "title": "Waterfront Estate",
+      "location": "Miami Beach, FL 33139",
+      "price": "$7,800,000",
+      "date": "2024-12-01"
+    }
+  ],
+  "rentals": [
+    {
+      "id": "4",
+      "title": "Urban Loft Apartment",
+      "location": "Chicago, IL 60601",
+      "price": "$4,200/month",
+      "leaseStart": "2025-01-15",
+      "leaseEnd": "2026-01-14"
+    }
+  ]
+}
