@@ -26,7 +26,7 @@ const AgentSidebar = () => {
             to={item.to}
             className={clsx(
               "flex flex-col items-center text-foreground hover:text-muted-foreground transition-colors",
-              location.pathname === item.to && "text-primary"
+              location.pathname === item.to && "text-foreground"
             )}
           >
             {item.icon}
