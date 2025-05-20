@@ -43,7 +43,7 @@ const App = () => (
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/agent-dashboard" element={<AgentDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Index />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
