@@ -1,8 +1,9 @@
-import { Bell, Mail, Search, User, LogOut, ChevronDown } from "lucide-react";
+import { Mail, Search, User, LogOut, ChevronDown } from "lucide-react";
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const AgentTopbar = ({ user }) => {
+
+const UserTopbar = ({ user }) => {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -23,7 +24,7 @@ const AgentTopbar = ({ user }) => {
         <div className="relative w-full">
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search properties"
             className="w-full pl-10 pr-4 py-2 rounded bg-muted text-sm border focus:outline-none"
           />
           <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -31,12 +32,7 @@ const AgentTopbar = ({ user }) => {
       </div>
       <div className="flex items-center gap-6">
         <button className="relative">
-          <Mail className="h-5 w-5 text-foreground" />
-          <span className="absolute -top-1 -right-1 bg-muted-foreground text-white text-xs rounded-full px-1">3</span>
-        </button>
-        <button className="relative">
-          <Bell className="h-5 w-5 text-foreground" />
-          <span className="absolute -top-1 -right-1 bg-muted-foreground text-white text-xs rounded-full px-1">5</span>
+          <Mail className="h-5 w-5 text-muted-foreground" />
         </button>
         <div className="relative" ref={dropdownRef}>
           <button
@@ -57,7 +53,7 @@ const AgentTopbar = ({ user }) => {
           {open && (
             <div className="absolute right-0 mt-2 w-44 bg-white border rounded shadow-lg z-50">
               <Link
-                to="/agent/profile"
+                to="/dashboard/profile"
                 className="flex items-center gap-2 px-4 py-2 hover:bg-muted text-sm"
                 onClick={() => setOpen(false)}
               >
@@ -80,4 +76,4 @@ const AgentTopbar = ({ user }) => {
   );
 };
 
-export default AgentTopbar;
+export default UserTopbar;

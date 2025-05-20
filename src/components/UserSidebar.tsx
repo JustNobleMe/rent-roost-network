@@ -1,22 +1,22 @@
-import { Home, BarChart, List, Settings, LogOut } from "lucide-react";
+import { Home, Heart, ShoppingBag, LogOut, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import Logo from "../../public/images/logo-blue.png"
 import clsx from "clsx";
-import Logo from "../../public/images/logo-blue.png";
 
 const navItems = [
-  { icon: <Home />, label: "Dashboard", to: "/agent-dashboard" },
-  { icon: <BarChart />, label: "Analytics", to: "/agent-analytics" },
-  { icon: <List />, label: "Properties", to: "/agent-properties" },
-  { icon: <Settings />, label: "Settings", to: "/agent-settings" },
+  { icon: <Home />, label: "Dashboard", to: "/Dashboard" },
+  { icon: <Heart />, label: "Saved", to: "/dashboard/saved" },
+  { icon: <ShoppingBag />, label: "Purchases", to: "/dashboard/purchases" },
+  { icon: <User />, label: "Profile", to: "/dashboard/profile" },
 ];
 
-const AgentSidebar = () => {
+const UserSidebar = () => {
   const location = useLocation();
   return (
     <aside className="fixed left-0 top-0 h-full w-20 bg-white border-r flex flex-col items-center py-6 z-30">
       <Link to="/">
         <div className="mb-8">
-          <img src={Logo} alt="Logo" className="w-10 h-10" />
+            <img src={Logo} alt="Logo" className="w-10 h-10" />
         </div>
       </Link>
       <nav className="flex flex-col gap-8 flex-1">
@@ -41,4 +41,4 @@ const AgentSidebar = () => {
   );
 };
 
-export default AgentSidebar;
+export default UserSidebar;
