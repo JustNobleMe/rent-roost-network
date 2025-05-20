@@ -1,86 +1,149 @@
 [
   {
-    "id": 1,
-    "name": "Sarah Johnson",
-    "title": "Senior Real Estate Agent",
-    "location": "Los Angeles, CA",
-    "phone": "+1 (323) 555-7890",
-    "email": "sarah.johnson@estateelit.com",
-    "rating": 4.9,
-    "reviews": 152,
-    "listings": 38,
-    "experience": "12 years",
-    "specialization": "Luxury Properties",
-    "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop"
+    "user" : {
+      "id": 1,
+      "name": "Sarah Johnson",
+      "title": "Senior Real Estate Agent",
+      "location": "Los Angeles, CA",
+      "phone": "+1 (323) 555-7890",
+      "email": "sarah.johnson@estateelit.com",
+      "rating": 4.9,
+      "reviews": 152,
+      "listings": 38,
+      "experience": "12 years",
+      "specialization": "Luxury Properties",
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop"
+    },
+    "stats": {
+      "totalProperty": 268,
+      "totalIncome": 163848,
+      "totalSales": 848848,
+      "propertyGrowth": 16.8,
+      "incomeGrowth": -12.9,
+      "salesGrowth": 16.8
+    },
+    "revenueOverview": [
+    { "month": "Dec", "expense": 4000, "income": 7000 },
+    { "month": "Jan", "expense": 5000, "income": 9000 },
+    { "month": "Feb", "expense": 6000, "income": 10000 },
+    { "month": "Mar", "expense": 7000, "income": 12000 },
+    { "month": "Apr", "expense": 8000, "income": 14000 },
+    { "month": "May", "expense": 8500, "income": 15000 },
+    { "month": "Jun", "expense": 5698, "income": 8474 }
+  ],
+  "messages": [
+    { "id": 1, "name": "Jane Cooper", "message": "I need a property", "time": "12 min ago", "unread": 12, "avatar": "https://randomuser.me/api/portraits/women/44.jpg" },
+    { "id": 2, "name": "Brooklyn Simmons", "message": "My budget is $500,000", "time": "1 day ago", "unread": 0, "avatar": "https://randomuser.me/api/portraits/men/45.jpg" },
+    { "id": 3, "name": "Esther Howard", "message": "Thank you so much.😊", "time": "8 hrs ago", "unread": 8, "avatar": "https://randomuser.me/api/portraits/women/46.jpg" },
+    { "id": 4, "name": "Guy Hawkins", "message": "How May I help you?", "time": "3 day ago", "unread": 0, "avatar": "https://randomuser.me/api/portraits/men/47.jpg" }
+  ],
+  "activeProperties": [
+    {
+      "id": "1",
+      "title": "Opulence Oasis",
+      "beds": 3,
+      "baths": 2,
+      "size": "1200sqft",
+      "location": "Paris, France",
+      "contact": "(406) 555-0120",
+      "date": "6 Jul 2024",
+      "engagement": 1747,
+      "price": 85858.59,
+      "image": "https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?q=80&w=400&auto=format&fit=crop"
+    },
+    {
+      "id": "2",
+      "title": "Regal Retreat",
+      "beds": 2,
+      "baths": 2,
+      "size": "1400sqft",
+      "location": "Paris, France",
+      "contact": "(480) 555-0103",
+      "date": "7 Jul 2024",
+      "engagement": 1656,
+      "price": 94346.48,
+      "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=400&auto=format&fit=crop"
+    }
+  ]
   },
   {
-    "id": 2,
-    "name": "Michael Rodriguez",
-    "title": "Commercial Property Specialist",
-    "location": "New York, NY",
-    "phone": "+1 (212) 555-4321",
-    "email": "michael.rodriguez@estateelit.com",
-    "rating": 4.8,
-    "reviews": 98,
-    "listings": 24,
-    "experience": "8 years",
-    "specialization": "Office Spaces",
-    "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop"
+    "user" :{
+      "id": 2,
+      "name": "Michael Rodriguez",
+      "title": "Commercial Property Specialist",
+      "location": "New York, NY",
+      "phone": "+1 (212) 555-4321",
+      "email": "michael.rodriguez@estateelit.com",
+      "rating": 4.8,
+      "reviews": 98,
+      "listings": 24,
+      "experience": "8 years",
+      "specialization": "Office Spaces",
+      "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop"
+    }
   },
   {
-    "id": 3,
-    "name": "Jennifer Chen",
-    "title": "Residential Property Expert",
-    "location": "San Francisco, CA",
-    "phone": "+1 (415) 555-6543",
-    "email": "jennifer.chen@estateelit.com",
-    "rating": 5.0,
-    "reviews": 87,
-    "listings": 19,
-    "experience": "6 years",
-    "specialization": "Urban Apartments",
-    "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1200&auto=format&fit=crop"
+    "user" : {
+      "id": 3,
+      "name": "Jennifer Chen",
+      "title": "Residential Property Expert",
+      "location": "San Francisco, CA",
+      "phone": "+1 (415) 555-6543",
+      "email": "jennifer.chen@estateelit.com",
+      "rating": 5.0,
+      "reviews": 87,
+      "listings": 19,
+      "experience": "6 years",
+      "specialization": "Urban Apartments",
+      "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1200&auto=format&fit=crop"
+    }
   },
   {
-    "id": 4,
-    "name": "David Williams",
-    "title": "Luxury Estate Agent",
-    "location": "Miami, FL",
-    "phone": "+1 (305) 555-8765",
-    "email": "david.williams@estateelit.com",
-    "rating": 4.7,
-    "reviews": 113,
-    "listings": 27,
-    "experience": "15 years",
-    "specialization": "Waterfront Properties",
-    "image": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1200&auto=format&fit=crop"
+    "user" :{
+      "id": 4,
+      "name": "David Williams",
+      "title": "Luxury Estate Agent",
+      "location": "Miami, FL",
+      "phone": "+1 (305) 555-8765",
+      "email": "david.williams@estateelit.com",
+      "rating": 4.7,
+      "reviews": 113,
+      "listings": 27,
+      "experience": "15 years",
+      "specialization": "Waterfront Properties",
+      "image": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1200&auto=format&fit=crop"
+    }
   },
   {
-    "id": 5,
-    "name": "Olivia Martinez",
-    "title": "Vacation Rental Specialist",
-    "location": "Austin, TX",
-    "phone": "+1 (512) 555-2345",
-    "email": "olivia.martinez@estateelit.com",
-    "rating": 4.9,
-    "reviews": 76,
-    "listings": 22,
-    "experience": "7 years",
-    "specialization": "Vacation Homes",
-    "image": "https://images.unsplash.com/photo-1598257006626-48b0c252070d?q=80&w=1200&auto=format&fit=crop"
+    "user" :{
+      "id": 5,
+      "name": "Olivia Martinez",
+      "title": "Vacation Rental Specialist",
+      "location": "Austin, TX",
+      "phone": "+1 (512) 555-2345",
+      "email": "olivia.martinez@estateelit.com",
+      "rating": 4.9,
+      "reviews": 76,
+      "listings": 22,
+      "experience": "7 years",
+      "specialization": "Vacation Homes",
+      "image": "https://images.unsplash.com/photo-1598257006626-48b0c252070d?q=80&w=1200&auto=format&fit=crop"
+    }
   },
   {
-    "id": 6,
-    "name": "James Wilson",
-    "title": "Investment Property Advisor",
-    "location": "Chicago, IL",
-    "phone": "+1 (312) 555-9876",
-    "email": "james.wilson@estateelit.com",
-    "rating": 4.8,
-    "reviews": 92,
-    "listings": 31,
-    "experience": "10 years",
-    "specialization": "Multi-family Properties",
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
+    "user" :{
+      "id": 6,
+      "name": "James Wilson",
+      "title": "Investment Property Advisor",
+      "location": "Chicago, IL",
+      "phone": "+1 (312) 555-9876",
+      "email": "james.wilson@estateelit.com",
+      "rating": 4.8,
+      "reviews": 92,
+      "listings": 31,
+      "experience": "10 years",
+      "specialization": "Multi-family Properties",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
+    }
   }
 ]

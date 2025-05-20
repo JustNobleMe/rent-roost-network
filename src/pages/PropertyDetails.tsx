@@ -34,7 +34,7 @@ const PropertyDetails = () => {
   const property = PropertiesData.find((item) => item.id === id);
 
   // Find the agent associated with the property
-  const agent = property ? AgentsData.find((agent) => agent.id === property.agent.id) : null;
+  const agent = property ? AgentsData.find((agent) => agent.user.id === property.agent.id) : null;
 
   if (!property) {
     return (
@@ -219,38 +219,38 @@ const PropertyDetails = () => {
                 <CardContent className="pt-6">
                   <div className="flex items-center mb-4">
                     <img 
-                      src={agent.image} 
-                      alt={agent.name} 
+                      src={agent.user.image} 
+                      alt={agent.user.name} 
                       className="h-16 w-16 rounded-full object-cover mr-4"
                     />
                     <div>
-                      <h3 className="font-semibold">{agent.name}</h3>
-                      <p className="text-sm text-muted-foreground">{agent.title}</p>
+                      <h3 className="font-semibold">{agent.user.name}</h3>
+                      <p className="text-sm text-muted-foreground">{agent.user.title}</p>
                     </div>
                   </div>
                   <Separator className="mb-4" />
                   <div className="space-y-3 mb-4">
                     <div className="flex items-center">
                       <Phone className="h-4 w-4 mr-2 text-muted-foreground" />
-                      <span className="text-sm"><a href={`tel:${agent.phone}`} className="text-sm hover:underline">
-                        {agent.phone}
+                      <span className="text-sm"><a href={`tel:${agent.user.phone}`} className="text-sm hover:underline">
+                        {agent.user.phone}
                       </a></span>
                     </div>
                     <div className="flex items-center">
                       <Mail className="h-4 w-4 mr-2 text-muted-foreground" />
-                      <span className="text-sm"><a href={`mailto:${agent.email}`} className="text-sm hover:underline">
-                        {agent.email}
+                      <span className="text-sm"><a href={`mailto:${agent.user.email}`} className="text-sm hover:underline">
+                        {agent.user.email}
                       </a></span>
                     </div>
                   </div>
                   <div className="grid gap-2">
-                    <a href={`tel:${agent.phone}`} className="w-full">  
+                    <a href={`tel:${agent.user.phone}`} className="w-full">  
                       <Button className="w-full">
                         <Phone className="h-4 w-4 mr-2" />
                         Call Agent
                       </Button>
                     </a>
-                    <a href={`mailto:${agent.email}`} className="w-full">
+                    <a href={`mailto:${agent.user.email}`} className="w-full">
                       <Button variant="outline" className="w-full">
                         <Mail className="h-4 w-4 mr-2" />
                         Email Agent
