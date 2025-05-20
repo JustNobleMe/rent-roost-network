@@ -1,6 +1,6 @@
 import React from "react";
-import UserSidebar from "@/components/UserSidebar";
-import UserTopbar from "@/components/UserTopbar";
+import UserSidebar from "@/components/dashboards/UserSidebar";
+import UserTopbar from "@/components/dashboards/UserTopbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { User, Heart, Home, ShoppingBag, Mail } from "lucide-react";

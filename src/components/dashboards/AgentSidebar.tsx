@@ -1,7 +1,7 @@
 import { Home, BarChart, List, Settings, LogOut } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
-import Logo from "../../public/images/logo-blue.png";
+import Logo from "@/images/logo-blue.png";
 
 const navItems = [
   { icon: <Home />, label: "Dashboard", to: "/agent-dashboard" },

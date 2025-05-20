@@ -1,6 +1,6 @@
 import { Home, Heart, ShoppingBag, LogOut, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../../public/images/logo-blue.png"
+import Logo from "@/images/logo-blue.png"
 import clsx from "clsx";
 
 const navItems = [
@@ -26,7 +26,7 @@ const UserSidebar = () => {
             to={item.to}
             className={clsx(
               "flex flex-col items-center text-foreground hover:text-muted-foreground transition-colors",
-              location.pathname === item.to && "text-primary"
+              location.pathname === item.to && "text-foreground"
             )}
           >
             {item.icon}

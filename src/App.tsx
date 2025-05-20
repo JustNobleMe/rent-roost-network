@@ -16,8 +16,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Messages from "./pages/Messages";
 import ResetPassword from "./pages/ResetPassword";
-import Dashboard from "@/pages/Dashboard";
-import AgentDashboard from "@/pages/AgentDashboard";
+import Dashboard from "@/pages/Dashboard/Dashboard";
+import AgentDashboard from "@/pages/Dashboard/AgentDashboard";
 
 const queryClient = new QueryClient();
 

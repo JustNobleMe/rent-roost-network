@@ -1,6 +1,6 @@
 import React from "react";
-import AgentSidebar from "@/components/AgentSidebar";
-import AgentTopbar from "@/components/AgentTopbar";
+import AgentSidebar from "@/components/dashboards/AgentSidebar";
+import AgentTopbar from "@/components/dashboards/AgentTopbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import dashboardData from "@/agentsData.json";
