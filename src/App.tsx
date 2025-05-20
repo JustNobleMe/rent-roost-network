@@ -23,12 +23,12 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <Analytics />
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <Analytics />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
