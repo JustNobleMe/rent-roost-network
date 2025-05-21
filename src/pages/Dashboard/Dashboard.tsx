@@ -4,10 +4,24 @@ import UserTopbar from "@/components/dashboards/UserTopbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { User, Heart, Home, ShoppingBag, Mail } from "lucide-react";
-import dashboardData from "@/users.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+//User Data
+import Data from "@/users.json";
 
 const Dashboard = () => {
+
+  const userId = Number(localStorage.getItem("userId"));
+
+  const dashboardData = Data.find((user) => user.user.id === userId);
+
+  if (!dashboardData) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-xl font-semibold">User data not found. Return <Link to={"/"} className="text-muted-foreground"> Home</Link></div>
+      </div>
+    );
+  }
+
   const { user, savedProperties, purchases, rentals } = dashboardData;
 
   return (

@@ -5,8 +5,32 @@ import { Button } from "@/components/ui/button";
 import { Home, Search, User, MessageCircle } from "lucide-react";
 
 const Navbar = () => {
+  const loggedIn = Number(localStorage.getItem("userId"));
+  const userRole = localStorage.getItem("userRole");
   const [scrolled, setScrolled] = useState(false);
   
+  const agentNav = () => {
+    if (userRole === "agent") {
+      return (
+        <Link to="/Agent-Dashboard">
+            <Button variant="outline" className="rounded-full">
+              <User className="h-4 w-4 mr-2" />
+                Dashboard
+            </Button>
+        </Link>
+      )
+    } 
+    return (
+        <Link to="/Dashboard">
+            <Button variant="outline" className="rounded-full">
+              <User className="h-4 w-4 mr-2" />
+                Dashboard
+            </Button>
+        </Link>
+      )
+  }
+
+
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
@@ -54,17 +78,24 @@ const Navbar = () => {
                 <Search className="h-5 w-5" />
               </Button>
             </Link> */}
+            {loggedIn ?
             <Link to="/messages">
               <Button variant="ghost" size="icon" className="rounded-full">
                 <MessageCircle className="h-5 w-5" />
               </Button>
-            </Link>
-            <Link to="/login">
-              <Button variant="outline" className="rounded-full">
-                <User className="h-4 w-4 mr-2" />
-                Login
-              </Button>
-            </Link>
+            </Link> : ''}
+            
+              {loggedIn ? 
+                agentNav()
+              : 
+                <Link to="/login">
+                  <Button variant="outline" className="rounded-full">
+                  <User className="h-4 w-4 mr-2" />
+                    Login
+                  </Button>
+                </Link>
+              }
+                
           </div>
         </div>
       </div>

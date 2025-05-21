@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,30 +8,48 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/components/ui/use-toast';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import users from '../usersLog.json';
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate login
+    setLoginError('');
+
     setTimeout(() => {
+      const user = users.find(
+        (u) => u.email === email && u.password === password
+      );
       setIsLoading(false);
-      toast({
-        title: "Login Successful",
-        description: "Welcome back to EstateElite",
-      });
-    }, 1500);
+      if (user) {
+        localStorage.setItem("userId", String(user.id));
+        localStorage.setItem("userRole", String(user.role));
+        toast({
+          title: "Login Successful",
+          description: "Welcome back to EstateElite",
+        });
+        if (user.role === "agent") {
+          navigate("/agent-dashboard");
+        } else {
+          navigate("/dashboard");
+        }
+      } else {
+        setLoginError("Invalid email or password");
+      }
+    }, 800);
   };
-  
+
   const handleSignup = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate signup
+
     setTimeout(() => {
       setIsLoading(false);
       toast({
@@ -41,11 +58,11 @@ const Login = () => {
       });
     }, 1500);
   };
-  
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       <div className="flex-grow flex items-center justify-center py-20 px-4 md:px-6 bg-secondary/50">
         <div className="w-full max-w-md animate-fade-in">
           <Tabs defaultValue="login" className="w-full">
@@ -53,7 +70,7 @@ const Login = () => {
               <TabsTrigger value="login">Login</TabsTrigger>
               <TabsTrigger value="signup">Sign Up</TabsTrigger>
             </TabsList>
-            
+
             <TabsContent value="login">
               <Card className="glass-morphism border-0 shadow-lg">
                 <CardHeader>
@@ -64,13 +81,16 @@ const Login = () => {
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleLogin} className="space-y-4">
-                    <div className="space-y-2">
+                    <div className="space-y-2"> 
                       <Label htmlFor="email">Email</Label>
-                      <Input 
-                        id="email" 
-                        type="email" 
-                        placeholder="name@example.com" 
-                        required 
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="name@example.com"
+                        required
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        autoComplete="username"
                       />
                     </div>
                     <div className="space-y-2">
@@ -80,13 +100,19 @@ const Login = () => {
                           Forgot password?
                         </Link>
                       </div>
-                      <Input 
-                        id="password" 
-                        type="password" 
-                        placeholder="••••••••" 
-                        required 
+                      <Input
+                        id="password"
+                        type="password"
+                        placeholder="••••••••"
+                        required
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        autoComplete="current-password"
                       />
                     </div>
+                    {loginError && (
+                      <div className="text-red-500 text-sm text-center">{loginError}</div>
+                    )}
                     <Button type="submit" className="w-full" disabled={isLoading}>
                       {isLoading ? "Logging in..." : "Login"}
                     </Button>
@@ -110,7 +136,7 @@ const Login = () => {
                 </CardFooter>
               </Card>
             </TabsContent>
-            
+
             <TabsContent value="signup">
               <Card className="glass-morphism border-0 shadow-lg">
                 <CardHeader>
@@ -133,26 +159,26 @@ const Login = () => {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email-signup">Email</Label>
-                      <Input 
-                        id="email-signup" 
-                        type="email" 
-                        placeholder="name@example.com" 
-                        required 
+                      <Input
+                        id="email-signup"
+                        type="email"
+                        placeholder="name@example.com"
+                        required
                       />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="password-signup">Password</Label>
-                      <Input 
-                        id="password-signup" 
-                        type="password" 
-                        placeholder="••••••••" 
-                        required 
+                      <Input
+                        id="password-signup"
+                        type="password"
+                        placeholder="••••••••"
+                        required
                       />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="accountType">I am a</Label>
-                      <select 
-                        id="accountType" 
+                      <select
+                        id="accountType"
                         className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         <option value="buyer">Property Buyer</option>
@@ -182,7 +208,7 @@ const Login = () => {
           </Tabs>
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

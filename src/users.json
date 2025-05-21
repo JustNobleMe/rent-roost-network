@@ -1,9 +1,9 @@
-{
+[{
   "user": {
     "id": 1,
     "name": "John Doe",
     "email": "john.doe@email.com",
-    "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
+    "image": "https://randomuser.me/api/portraits/men/32.jpg"
   },
   "savedProperties": [
     {
@@ -41,3 +41,4 @@
     }
   ]
 }
+]

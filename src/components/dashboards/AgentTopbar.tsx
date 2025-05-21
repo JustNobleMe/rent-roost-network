@@ -1,8 +1,16 @@
 import { Bell, Mail, Search, User, LogOut, ChevronDown } from "lucide-react";
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AgentTopbar = ({ user }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userRole");
+    navigate("/");
+  }
+
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -44,7 +52,7 @@ const AgentTopbar = ({ user }) => {
             onClick={() => setOpen((v) => !v)}
           >
             <img
-              src={user.avatar}
+              src={user.image}
               alt={user.name}
               className="w-9 h-9 rounded-full object-cover border"
             />
@@ -67,7 +75,7 @@ const AgentTopbar = ({ user }) => {
                 className="flex items-center gap-2 px-4 py-2 w-full hover:bg-muted text-sm text-red-600"
                 onClick={() => {
                   setOpen(false);
-                  // Add your sign out logic here
+                  handleLogout();
                 }}
               >
                 <LogOut className="h-4 w-4" /> Sign Out

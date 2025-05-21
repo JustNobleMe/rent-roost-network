@@ -1,5 +1,5 @@
 import { Home, BarChart, List, Settings, LogOut } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import Logo from "@/images/logo-blue.png";
 
@@ -12,6 +12,14 @@ const navItems = [
 
 const AgentSidebar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userRole");
+    navigate("/");
+  }
+
   return (
     <aside className="fixed left-0 top-0 h-full w-20 bg-white border-r flex flex-col items-center py-6 z-30">
       <Link to="/">
@@ -34,8 +42,10 @@ const AgentSidebar = () => {
           </Link>
         ))}
       </nav>
-      <button className="mt-auto mb-2 text-muted-foreground hover:text-red-500 transition-colors">
-        <LogOut />
+      <button 
+      onClick={handleLogout}
+      className="mt-auto mb-2 text-muted-foreground hover:text-red-500 transition-colors">
+        <LogOut /> 
       </button>
     </aside>
   );

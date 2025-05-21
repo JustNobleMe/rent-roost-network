@@ -3,14 +3,28 @@ import AgentSidebar from "@/components/dashboards/AgentSidebar";
 import AgentTopbar from "@/components/dashboards/AgentTopbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import dashboardData from "@/agentsData.json";
 import { Line } from "react-chartjs-2";
 import { Chart, LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend } from "chart.js";
 import { Mail } from "lucide-react";
+// Data
+import Data from "@/agents.json";
 
 Chart.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
 
 const AgentDashboard = () => {
+
+  const userId = Number(localStorage.getItem("userId"));
+
+  const dashboardData = Data.find((agent) => agent.user.id === userId);
+
+  if (!dashboardData) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-xl font-semibold">Agent data not found.</div>
+      </div>
+    );
+  }
+
   const { user, stats, revenueOverview, messages, activeProperties } = dashboardData;
 
   // Chart Data
