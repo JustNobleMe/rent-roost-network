@@ -60,7 +60,7 @@ const AgentDashboard = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-muted">
+    <div className="flex min-h-screen bg-muted max-sm:s">
       <AgentSidebar />
       <div className="flex-1 ml-20 flex flex-col">
         <AgentTopbar user={user} />
