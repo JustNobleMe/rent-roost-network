@@ -60,11 +60,11 @@ const AgentDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-muted">
+    <div className="min-h-screen bg-muted max-sm:pb-10">
       <AgentSidebar />
       <div className="flex-1 ml-20 flex flex-col max-sm:ml-0">
         <AgentTopbar user={user} />
-        <main className="flex-1 pt-6 pb-10 px-4 md:px-6 max-sm:flex-auto">
+        <main className="flex-1 pt-6 pb-10 px-4 md:px-6">
           {/* Top Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-sm:flex max-sm:flex-col">
             <Card>
@@ -116,7 +116,7 @@ const AgentDashboard = () => {
                   <h2 className="text-lg font-semibold">Property revenue overview</h2>
                   <Button size="sm" variant="outline">This Week</Button>
                 </div>
-                <div className="h-64">
+                <div className="h-64 max-sm:h-auto">
                   <Line data={chartData} options={chartOptions} />
                 </div>
               </CardContent>
@@ -172,7 +172,7 @@ const AgentDashboard = () => {
                   <tbody>
                     {activeProperties.map((prop) => (
                       <tr key={prop.id} className="border-b last:border-none">
-                        <td className="p-2 flex items-center gap-2">
+                        <td className="p-2 flex items-center gap-2 max-sm:flex-col max-md:flex-col">
                           <img src={prop.image} alt={prop.title} className="w-12 h-10 object-cover rounded" />
                           <div>
                             <div className="font-medium">{prop.title}</div>

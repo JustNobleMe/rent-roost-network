@@ -1,6 +1,7 @@
 import { Bell, Mail, Search, User, LogOut, ChevronDown } from "lucide-react";
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Logo from "@/images/logo-blue.png";
 
 const AgentTopbar = ({ user }) => {
   const navigate = useNavigate();
@@ -26,8 +27,13 @@ const AgentTopbar = ({ user }) => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-20 bg-white border-b flex items-center justify-between px-6 h-16 max-sm:-left-100">
-      <div className="flex items-center gap-3 w-1/2">
+    <header className="sticky top-0 z-20 bg-white border-b flex items-center justify-between px-2 h-16 ">
+      <Link to="/">
+				<div className="hidden max-sm:mb-0 max-sm:block">
+					<img src={Logo} alt="Logo" className="w-10 h-10" />
+				</div>
+			</Link>
+      <div className="flex items-center w-1/2">
         <div className="relative w-full">
           <input
             type="text"

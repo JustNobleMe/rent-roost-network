@@ -25,14 +25,14 @@ const Dashboard = () => {
   const { user, savedProperties, purchases, rentals } = dashboardData;
 
   return (
-    <div className="flex min-h-screen bg-muted">
+    <div className="min-h-screen bg-muted max-sm:pb-10">
       <UserSidebar />
-      <div className="flex-1 ml-20 flex flex-col">
+      <div className="flex-1 ml-20 flex flex-col max-sm:ml-0">
         <UserTopbar user={user} />
         <main className="flex-1 pt-6 pb-10 px-4 md:px-6">
 
           {/* Quick Actions */}
-          <div className="flex gap-4 mb-8">
+          <div className="flex gap-2 mb-8">
             <Link to="/properties">
                 <Button variant="default" className="flex items-center gap-2">
                         <Home className="h-4 w-4" /> Browse Properties

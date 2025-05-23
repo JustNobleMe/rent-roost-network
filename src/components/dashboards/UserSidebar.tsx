@@ -20,13 +20,16 @@ const UserSidebar = () => {
     navigate("/");
   };
   return (
-    <aside className="fixed left-0 top-0 h-full w-20 bg-white border-r flex flex-col items-center py-6 z-30">
+    <aside className="fixed left-0 top-0 h-full w-20 bg-white border-r flex flex-col items-center py-6 z-30
+    max-sm:fixed max-sm:bottom-0 max-sm:top-auto max-sm:left-0 max-sm:w-full max-sm:h-20 max-sm:flex-row max-sm:border-t max-sm:border-r-0
+    max-sm:px-4
+  ">
       <Link to="/">
-        <div className="mb-8">
+        <div className="mb-8 max-sm:hidden">
             <img src={Logo} alt="Logo" className="w-10 h-10" />
         </div>
       </Link>
-      <nav className="flex flex-col gap-8 flex-1">
+      <nav className="flex flex-col gap-8 flex-1 max-sm:flex-row max-sm:flex-auto max-sm:justify-between">
         {navItems.map((item) => (
           <Link
             key={item.label}
@@ -43,7 +46,7 @@ const UserSidebar = () => {
       </nav>
       <button
       onClick={handleLogout}
-      className="mt-auto mb-2 text-muted-foreground hover:text-red-500 transition-colors">
+      className="mt-auto mb-2 text-muted-foreground hover:text-red-500 transition-colors  max-sm:hidden">
         <LogOut />
       </button>
     </aside>
