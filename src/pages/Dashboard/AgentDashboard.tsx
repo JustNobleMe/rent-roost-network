@@ -60,13 +60,13 @@ const AgentDashboard = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-muted max-sm:s">
+    <div className="min-h-screen bg-muted">
       <AgentSidebar />
-      <div className="flex-1 ml-20 flex flex-col">
+      <div className="flex-1 ml-20 flex flex-col max-sm:ml-0">
         <AgentTopbar user={user} />
-        <main className="flex-1 pt-6 pb-10 px-4 md:px-6">
+        <main className="flex-1 pt-6 pb-10 px-4 md:px-6 max-sm:flex-auto">
           {/* Top Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-sm:flex max-sm:flex-col">
             <Card>
               <CardContent className="pt-6">
                 <div className="flex justify-between items-center mb-2">

@@ -26,7 +26,7 @@ const AgentTopbar = ({ user }) => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-20 bg-white border-b flex items-center justify-between px-6 h-16">
+    <header className="sticky top-0 z-20 bg-white border-b flex items-center justify-between px-6 h-16 max-sm:-left-100">
       <div className="flex items-center gap-3 w-1/2">
         <div className="relative w-full">
           <input
@@ -56,11 +56,11 @@ const AgentTopbar = ({ user }) => {
               alt={user.name}
               className="w-9 h-9 rounded-full object-cover border"
             />
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start max-sm:hidden">
               <span className="font-medium text-sm">{user.name}</span>
               <span className="text-xs text-muted-foreground">Welcome back!</span>
             </div>
-            <ChevronDown className="h-4 w-4 text-muted-foreground -ml-2" />
+            <ChevronDown className="h-4 w-4 text-muted-foreground -ml-2 max-sm:hidden" />
           </button>
           {open && (
             <div className="absolute right-0 mt-2 w-44 bg-white border rounded shadow-lg z-50">

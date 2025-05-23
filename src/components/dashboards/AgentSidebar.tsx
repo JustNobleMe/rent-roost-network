@@ -30,7 +30,7 @@ const AgentSidebar = () => {
 					<img src={Logo} alt="Logo" className="w-10 h-10" />
 				</div>
 			</Link>
-			<nav className="flex flex-col gap-8 flex-1 max-sm:flex-row">
+			<nav className="flex flex-col gap-8 flex-1 max-sm:flex-row max-sm:flex-auto">
 				{navItems.map((item) => (
 					<Link
 						key={item.label}
