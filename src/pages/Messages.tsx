@@ -90,7 +90,7 @@ const messageHistory = [
 ];
 
 const Messages = () => {
-  const [activeConversation, setActiveConversation] = useState(1);
+  const [activeConversation, setActiveConversation] = useState(null);
   const [messageText, setMessageText] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   

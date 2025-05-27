@@ -106,8 +106,8 @@ const PropertyDetails = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-3xl font-bold text-foreground">{property.price}</p>
-                    <p className="text-muted-foreground text-sm">ID: {id}</p>
+                    <p className="text-3xl font-bold text-muted-foreground max-sm:text-xl">{property.price}</p>
+                    {/* <p className="text-muted-foreground text-sm">ID: {id}</p> */}
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-4">
