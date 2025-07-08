@@ -55,7 +55,7 @@ const AgentDashboard = () => {
       tooltip: { mode: 'index' as const, intersect: false }
     },
     scales: {
-      y: { beginAtZero: true }
+      y: { beginAtZero: false }
     }
   };
 

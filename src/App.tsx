@@ -18,6 +18,7 @@ import Messages from "./pages/Messages";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "@/pages/Dashboard/Dashboard";
 import AgentDashboard from "@/pages/Dashboard/AgentDashboard";
+import AgentProperties from "@/pages/Dashboard/AgentProperties";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/agent-dashboard" element={<AgentDashboard />} />
+          <Route path="/agent-properties" element={<AgentProperties />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
