@@ -5,10 +5,10 @@ import AgentTopbar from "@/components/dashboards/AgentTopbar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Chart, LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend } from "chart.js";
-import { Mail, Search, Filter, MapPin, Bed, Bath, Square, X } from "lucide-react";
+import { Search, Filter, MapPin, Bed, Bath, Square, X, PlusIcon } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Slider } from "@/components/ui/slider";
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -33,6 +33,7 @@ const AgentDashboard = () => {
   const [searchTerm, setSearchTerm] = useState(searchQuery); // Initialize with the search query
   const [activeTab, setActiveTab] = useState("all");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isAddOpen, setIsAddOpen] = useState(false);
   
   // Filter state
   const [priceRange, setPriceRange] = useState([0, 10000000]);
@@ -154,8 +155,7 @@ const AgentDashboard = () => {
           {/* Properties page */}
           <div className="pt-8 pb-16 min-h-screen bg-white rounded-lg">
                   <div className="container mx-auto px-4 md:px-6">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
-                      <h1 className="text-3xl font-bold tracking-tight mb-4 md:mb-0">Properties</h1>
+                    <div className="flex flex-col md:flex-row md:items-center justify-end mb-8">
                       <div className="flex gap-2 w-full md:w-auto">
                         <div className="relative flex-1 md:w-80">
                           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" />
@@ -183,7 +183,7 @@ const AgentDashboard = () => {
                                 : "Filters"}
                             </Button>
                           </PopoverTrigger>
-                          <PopoverContent className="w-80 p-4">
+                          <PopoverContent className="p-4 mr-10 z-0">
                             <div className="space-y-4">
                               <div className="flex items-center justify-between">
                                 <h3 className="font-medium">Filters</h3>
@@ -275,15 +275,123 @@ const AgentDashboard = () => {
                         </Popover>
                       </div>
                     </div>
-                    
-                    <Tabs defaultValue="all" className="mb-8" onValueChange={setActiveTab}>
-                      <TabsList className="grid grid-cols-4 w-full md:w-1/2 lg:w-1/3">
-                        <TabsTrigger value="all">All</TabsTrigger>
-                        <TabsTrigger value="sale">For Sale</TabsTrigger>
-                        <TabsTrigger value="rent">For Rent</TabsTrigger>
-                        <TabsTrigger value="lease">For Lease</TabsTrigger>
-                      </TabsList>
-                    </Tabs>
+                    <div className="container flex justify-between">
+                        <Tabs defaultValue="all" className="mb-8 w-full" onValueChange={setActiveTab}>
+                          <TabsList className="grid grid-cols-4 w-full md:w-1/2 lg:w-1/3">
+                            <TabsTrigger value="all">All</TabsTrigger>
+                            <TabsTrigger value="sale">For Sale</TabsTrigger>
+                            <TabsTrigger value="rent">For Rent</TabsTrigger>
+                            <TabsTrigger value="lease">For Lease</TabsTrigger>
+                          </TabsList>
+                        </Tabs>
+                      <Popover open={isAddOpen} onOpenChange={setIsAddOpen}>
+                        <PopoverTrigger asChild >
+                          <Button
+                            variant="outline"
+                            className={hasActiveFilters ? "border-primary text-primary" : ""}
+                          >
+                            <PlusIcon className="h-4 w-4 mr-2" />
+                            {hasActiveFilters
+                              ? `Filters (${
+                                  (bedrooms !== "" ? 1 : 0) +
+                                  (bathrooms !== "" ? 1 : 0) +
+                                  (propertyType !== "" ? 1 : 0) +
+                                  ((priceRange[0] > 0 || priceRange[1] < 10000000) ? 1 : 0)
+                                })`
+                              : "Add Property"}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-[calc(100vw-20vw)] p-4 mr-10 z-0" >
+                          <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                              <h3 className="font-medium">Add Property</h3>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={clearFilters}
+                                className="h-8 px-2 text-xs"
+                              >
+                                <X className="h-3 w-3 mr-1" />
+                                Clear all
+                              </Button>
+                            </div>
+        
+                            {/* Property Type Filter */}
+                            <div className="space-y-2">
+                              <label className="text-sm font-medium">Property Type</label>
+                              <Select value={propertyType} onValueChange={setPropertyType}>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Any" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="any">Any</SelectItem>
+                                  <SelectItem value="Sale">For Sale</SelectItem>
+                                  <SelectItem value="Rent">For Rent</SelectItem>
+                                  <SelectItem value="Lease">For Lease</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+        
+                            {/* Price Range Filter */}
+                            <div className="space-y-2">
+                              <div className="flex justify-between">
+                                <label className="text-sm font-medium">Price Range</label>
+                                <span className="text-sm text-muted-foreground">
+                                  {formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}
+                                </span>
+                              </div>
+                              <Slider
+                                value={priceRange}
+                                min={0}
+                                max={10000000}
+                                step={50000}
+                                onValueChange={setPriceRange}
+                                className="py-4"
+                              />
+                            </div>
+        
+                            {/* Bedrooms Filter */}
+                            <div className="space-y-2">
+                              <label className="text-sm font-medium">Bedrooms</label>
+                              <Select value={bedrooms} onValueChange={setBedrooms}>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Any" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="any">Any</SelectItem>
+                                  <SelectItem value="1">1+</SelectItem>
+                                  <SelectItem value="2">2+</SelectItem>
+                                  <SelectItem value="3">3+</SelectItem>
+                                  <SelectItem value="4">4+</SelectItem>
+                                  <SelectItem value="5">5+</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+        
+                            {/* Bathrooms Filter */}
+                            <div className="space-y-2">
+                              <label className="text-sm font-medium">Bathrooms</label>
+                              <Select value={bathrooms} onValueChange={setBathrooms}>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Any" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="any">Any</SelectItem>
+                                  <SelectItem value="1">1+</SelectItem>
+                                  <SelectItem value="2">2+</SelectItem>
+                                  <SelectItem value="3">3+</SelectItem>
+                                  <SelectItem value="4">4+</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+        
+                            <Button className="w-full" onClick={() => setIsFilterOpen(false)}>
+                              Apply Filters
+                            </Button>
+                          </div>
+                        </PopoverContent>
+                      </Popover>
+                    </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {filteredProperties.length > 0 ? (

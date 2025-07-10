@@ -11,9 +11,9 @@ import Footer from '@/components/Footer';
 import users from '../usersLog.json';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -58,7 +58,6 @@ const Login = () => {
       });
     }, 1500);
   };
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

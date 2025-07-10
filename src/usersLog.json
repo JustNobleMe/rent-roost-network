@@ -10,5 +10,11 @@
         "email": "john.doe@email.com",
         "password": "12345",
         "role": "user"
+    },
+    {
+        "id": 2,
+        "email": "michael.rodriguez@estateelit.com",
+        "password": "12345",
+        "role": "agent"
     }
 ]

@@ -5,7 +5,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Line } from "react-chartjs-2";
 import { Chart, LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend } from "chart.js";
-import { Mail } from "lucide-react";
 // Data
 import Data from "@/agents.json";
 
